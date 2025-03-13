@@ -5,4 +5,7 @@ def home(request):
     return HttpResponse("Halo, ini halaman utama dari aplikasi!")
 
 def about(request):
-    return HttpResponse("Ini halaman About dari aplikasi!")
+    return HttpResponse("Tess")
+
+def spk_ahp(request):
+    return HttpResponse("SPK AHP")

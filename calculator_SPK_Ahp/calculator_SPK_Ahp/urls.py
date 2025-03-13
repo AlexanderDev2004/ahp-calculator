@@ -25,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),  # Route bawaan Django untuk admin panel
     path('', home),  # Route ke halaman utama
     path('about/', lambda request: HttpResponse("Ini halaman About")),  # Route ke halaman About
+    path('spk-ahp/', views.spk_ahp, name='spk-ahp'),  # Halaman Kalkulator SPK AHP
 ]
