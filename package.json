@@ -1,0 +1,25 @@
+{
+  "name": "ahp-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderDev2004/ahp-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AlexanderDev2004/ahp-calculator/issues"
+  },
+  "homepage": "https://github.com/AlexanderDev2004/ahp-calculator#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.14",
+    "@tailwindcss/postcss": "^4.0.14",
+    "htmx.org": "^1.9.12",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.14"
+  }
+}

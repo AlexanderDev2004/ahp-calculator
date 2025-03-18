@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" class="max-[8192px]:opacity-0 max-[3120px]:opacity-100 max-[3120px]:m-0 max-[3120px]:p-0 max-[3120px]:box-border max-[3120px]:[font-family:'Plus_Jakarta_Sans',Times,sans-serif,serif] max-[324px]:hidden">
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index" />
+    <meta name="description" content="{% block description %}{% endblock %}" />
+    <meta property="og:title" content="{{ self.title() }}" />
+    <meta property="og:description" content="{{ self.description() }}" />
+    <meta property="og:image" content="{{ url_for('public', path='/img/favicon.ico') }}" />
+    <meta name="twitter:title" content="{{ self.title() }}" />
+    <meta name="twitter:description" content="{{ self.description() }}" />
+    <meta name="twitter:image" content="{{ url_for('public', path='/img/favicon.ico') }}" />
+    <title>{% block title %}{% endblock %} | Decimate</title>
+    <link rel="stylesheet" href="{{ url_for('public', path='/css/app.css') }}">
+    <link rel="stylesheet" href="{{ url_for('public', path='/css/output.css') }}">
+    <link rel="stylesheet" href="https://atugatran.github.io/FontAwesome6Pro/css/all.min.css" />
+    <link rel="icon" href="{{ url_for('public', path='/img/favicon.ico') }}" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="{{ url_for('node_modules', path='/htmx.org/dist/htmx.min.js') }}"></script>
+  </head>
+  <body class="h-full min-h-screen overflow-x-hidden">
+    {% block header %}
+        {% include "shared/header.html" %}
+    {% endblock %}
+    {% block content %}{% endblock %}
+    {% block footer %}
+        {% include "shared/footer.html" %}
+    {% endblock %}
+    <script src="{{ url_for('public', path='/js/app.js') }}"></script>
+  </body>
+</html>
