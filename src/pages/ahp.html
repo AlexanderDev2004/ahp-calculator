@@ -1,0 +1,30 @@
+{% extends 'layouts/main.html' %}
+
+{% block content %}
+<h2 class="text-xl font-bold">AHP Calculator</h2>
+
+<form action="/calculate/" method="post">
+    <label>Criteria (comma-separated)</label>
+    <input type="text" name="criteria" placeholder="Cost,Quality,Durability" required>
+
+    <label>Pairwise Comparison Matrix (Python List Format)</label>
+    <textarea name="comparisons" placeholder="[[1, 3, 0.5], [0.33, 1, 0.2], [2, 5, 1]]" required></textarea>
+
+    <button type="submit">Calculate</button>
+</form>
+
+{% if weights %}
+<h3>Results</h3>
+<ul>
+    {% for crit, weight in zip(criteria, weights) %}
+        <li>{{ crit }}: {{ "%.3f"|format(weight) }}</li>
+    {% endfor %}
+</ul>
+<p>Consistency Index (CI): {{ "%.3f"|format(ci) }}</p>
+<p>Consistency Ratio (CR): {{ "%.3f"|format(cr) }}</p>
+{% endif %}
+
+{% if error %}
+<p class="text-red-500">Error: {{ error }}</p>
+{% endif %}
+{% endblock %}
