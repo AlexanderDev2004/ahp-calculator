@@ -1,18 +1,86 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AHP Calculator</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="p-8">
-    <p class="">Masa Perkembangan: Mode Developers</p>
-    <h1 class="text-2xl font-bold">AHP Calculator</h1>
+{% extends 'layouts/main.html' %}
+{% block content %}
+
+
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <h1 class="text-blue-500">Mode Developer</h1>
+    <h2 class="text-2xl font-bold mb-4">AHP Calculator</h2>
     
-    <form action="/calculate" method="post" class="mt-4">
-        <label for="criteria">Kriteria</label>
-        
-    </form>
-</body>
-</html>
+    <!-- Input Criteria and Alternatives -->
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-2">Input Criteria and Alternatives</h3>
+        <div class="space-y-2">
+            <label class="block font-medium">Criteria</label>
+            <input type="text" placeholder="Enter criterion" class="border p-2 w-full rounded">
+            <button type="button" class="bg-blue-500 text-white px-3 py-1 rounded">+</button>
+        </div>
+        <div class="mt-4 space-y-2">
+            <label class="block font-medium">Alternatives</label>
+            <input type="text" placeholder="Enter alternative" class="border p-2 w-full rounded">
+            <button type="button" class="bg-blue-500 text-white px-3 py-1 rounded">+</button>
+        </div>
+    </div>
+
+    <!-- Pairwise Comparison Matrix -->
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-2">Pairwise Comparison Matrix</h3>
+        <table class="w-full border-collapse border border-gray-300 text-center">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border border-gray-300 px-4 py-2">Criteria</th>
+                    <th class="border border-gray-300 px-4 py-2">Cost</th>
+                    <th class="border border-gray-300 px-4 py-2">Quality</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Cost</td>
+                    <td class="border border-gray-300 px-4 py-2">1</td>
+                    <td class="border border-gray-300 px-4 py-2"></td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Quality</td>
+                    <td class="border border-gray-300 px-4 py-2"></td>
+                    <td class="border border-gray-300 px-4 py-2">1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Results Section -->
+    <div class="grid grid-cols-2 gap-4">
+        <div class="bg-gray-100 p-4 rounded">
+            <h3 class="font-semibold">Criteria Weights</h3>
+            <ul>
+                <li>Cost: 0.667</li>
+                <li>Quality: 0.333</li>
+            </ul>
+        </div>
+        <div class="bg-gray-100 p-4 rounded">
+            <h3 class="font-semibold">Consistency Measures</h3>
+            <ul>
+                <li>CI: 0.062</li>
+                <li>CR: 0.089</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Final Rankings -->
+    <div class="mt-6">
+        <h3 class="text-xl font-semibold">Final Rankings</h3>
+        <div class="mt-2">
+            <p>Option A: 0.75</p>
+            <div class="w-full bg-gray-200 h-4 rounded overflow-hidden">
+                <div class="bg-blue-500 h-4" style="width: 75%;"></div>
+            </div>
+        </div>
+        <div class="mt-2">
+            <p>Option B: 0.25</p>
+            <div class="w-full bg-gray-200 h-4 rounded overflow-hidden">
+                <div class="bg-blue-500 h-4" style="width: 25%;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
