@@ -1,3 +1,5 @@
 fastapi
 jinja2
+livereload
+polars
 uvicorn

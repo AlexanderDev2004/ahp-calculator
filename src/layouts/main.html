@@ -24,14 +24,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="{{ url_for('node_modules', path='/htmx.org/dist/htmx.min.js') }}"></script>
   </head>
-  <body class="h-full min-h-screen overflow-x-hidden">
+  <body class="flex h-full min-h-screen flex-col overflow-x-hidden bg-[#fbf7f2]">
     {% block header %}
         {% include "shared/header.html" %}
     {% endblock %}
-    {% block content %}{% endblock %}
+    <main class="flex-1">
+        {% block content %}{% endblock %}
+    </main>
     {% block footer %}
         {% include "shared/footer.html" %}
     {% endblock %}
+    <script src="http://localhost:35729/livereload.js"></script>
     <script src="{{ url_for('public', path='/js/app.js') }}"></script>
   </body>
 </html>

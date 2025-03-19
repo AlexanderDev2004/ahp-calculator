@@ -1,4 +1,4 @@
-name: issues
+name: Issues Management
 
 on:
   issues:
@@ -8,5 +8,29 @@ permissions:
   issues: write
 
 jobs:
-  help-wanted:
+  manage-issues:
     runs-on: ubuntu-latest
+    steps:
+      - name: Close issue
+        if: ${{ github.event.label.name == 'invalid' }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            })
+
+      - name: Assign issue
+        if: ${{ github.event.label.name == 'question' }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              assignees: ['@github-actions[bot]']
+            })

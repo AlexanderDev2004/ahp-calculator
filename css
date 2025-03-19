@@ -1,8 +1,4 @@
-if ! npx tailwindcss -v > /dev/null 2>&1 || ! npx postcss -v > /dev/null 2>&1;
-then
-    npm install postcss tailwindcss @tailwindcss/cli @tailwindcss/postcss
-fi
-
+#!/bin/bash
 if [ ! -f "./public/css/output.css" ];
 then
     touch ./public/css/output.css
