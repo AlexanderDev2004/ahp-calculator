@@ -2,7 +2,188 @@
 
 {% block title %}Help{% endblock %}
 
-{% block description %}{% endblock %}
+{% block description %}Panduan Lengkap Aplikasi Sistem Pendukung Keputusan (SPK) Demice{% endblock %}
 
 {% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center mb-4">Panduan Aplikasi Sistem Pendukung Keputusan (SPK) Demice</h1>
+            
+            <div class="card mb-4">
+                <div class="card-body bg-primary text-white">
+                    <h2 class="h4 mb-0">Penggunaan Aplikasi Demice</h2>
+                </div>
+                <div class="card-body">
+                    <h3 class="h5">Login dan Konfigurasi Awal</h3>
+                    <ol>
+                        <li>Masuk ke aplikasi dengan username dan password</li>
+                        <li>Konfigurasikan parameter dasar sistem:
+                            <ul>
+                                <li>Kriteria keputusan</li>
+                                <li>Bobot kriteria</li>
+                                <li>Alternatif yang akan dievaluasi</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h3 class="h5 mt-4">Langkah-Langkah Penggunaan</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">1. Input Data</div>
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Masukkan alternatif-alternatif yang akan dibandingkan</li>
+                                        <li>Tentukan kriteria penilaian untuk setiap alternatif</li>
+                                        <li>Berikan nilai untuk setiap alternatif pada setiap kriteria</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">2. Proses Perhitungan</div>
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Pilih metode yang ingin digunakan (SAW, TOPSIS, WP, atau AHP)</li>
+                                        <li>Klik tombol "Proses" untuk menjalankan perhitungan</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">3. Analisis Hasil</div>
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Lihat ranking dari alternatif yang dievaluasi</li>
+                                        <li>Periksa detail perhitungan setiap metode</li>
+                                        <li>Bandingkan hasil dari berbagai metode</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">4. Ekspor Hasil</div>
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Ekspor hasil dalam format PDF atau Excel</li>
+                                        <li>Simpan data untuk penggunaan di masa depan</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h2 class="h4 mb-0">Rumus-Rumus Metode SPK</h2>
+                </div>
+                <div class="card-body">
+                    <div class="method-section mb-4">
+                        <h3 class="h5">1. Metode Simple Additive Weighting (SAW)</h3>
+                        <div class="bg-light p-3 rounded">
+                            <pre><code>rij = (xij / max xij) [untuk benefit]
+rij = (min xij / xij) [untuk cost]
+Vi = Σ (wj * rij)</code></pre>
+                        </div>
+                        <p class="mt-2">Dimana:</p>
+                        <ul>
+                            <li>rij = nilai rating kinerja ternormalisasi</li>
+                            <li>xij = nilai atribut yang dimiliki setiap alternatif</li>
+                            <li>Vi = nilai preferensi untuk setiap alternatif</li>
+                            <li>wj = nilai bobot preferensi</li>
+                        </ul>
+                    </div>
+
+                    <div class="method-section mb-4">
+                        <h3 class="h5">2. Metode TOPSIS (Technique for Order Preference by Similarity to Ideal Solution)</h3>
+                        <div class="bg-light p-3 rounded">
+                            <pre><code>rij = xij / √(Σ xij²)
+yij = wj * rij
+A+ = max(yij) [untuk benefit], min(yij) [untuk cost]
+A- = min(yij) [untuk benefit], max(yij) [untuk cost]
+Di+ = √(Σ (yij - A+)²)
+Di- = √(Σ (yij - A-)²)
+Vi = Di- / (Di+ + Di-)</code></pre>
+                        </div>
+                        <p class="mt-2">Dimana:</p>
+                        <ul>
+                            <li>rij = matriks keputusan ternormalisasi</li>
+                            <li>yij = matriks keputusan ternormalisasi terbobot</li>
+                            <li>A+ = solusi ideal positif</li>
+                            <li>A- = solusi ideal negatif</li>
+                            <li>Di+ = jarak alternatif ke solusi ideal positif</li>
+                            <li>Di- = jarak alternatif ke solusi ideal negatif</li>
+                            <li>Vi = nilai preferensi</li>
+                        </ul>
+                    </div>
+
+                    <div class="method-section mb-4">
+                        <h3 class="h5">3. Metode Weighted Product (WP)</h3>
+                        <div class="bg-light p-3 rounded">
+                            <pre><code>Si = Π (xij^wj)
+Vi = Si / Σ Si</code></pre>
+                        </div>
+                        <p class="mt-2">Dimana:</p>
+                        <ul>
+                            <li>Si = preferensi alternatif sebagai vektor S</li>
+                            <li>xij = nilai kriteria</li>
+                            <li>wj = bobot kriteria</li>
+                            <li>Vi = preferensi relatif dari setiap alternatif</li>
+                        </ul>
+                    </div>
+
+                    <div class="method-section">
+                        <h3 class="h5">4. Metode AHP (Analytical Hierarchy Process)</h3>
+                        <div class="bg-light p-3 rounded">
+                            <pre><code>aij = nilai perbandingan kriteria i dengan j
+CI = (λmax - n) / (n - 1)
+CR = CI / RI</code></pre>
+                        </div>
+                        <p class="mt-2">Dimana:</p>
+                        <ul>
+                            <li>aij = nilai perbandingan</li>
+                            <li>CI = Consistency Index</li>
+                            <li>λmax = eigenvalue maksimum</li>
+                            <li>n = jumlah kriteria</li>
+                            <li>CR = Consistency Ratio</li>
+                            <li>RI = Random Index</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h2 class="h4 mb-0">Contoh Penggunaan</h2>
+                </div>
+                <div class="card-body">
+                    <p>Untuk menjelaskan cara penggunaan, mari kita ambil contoh pengambilan keputusan untuk pemilihan pemasok dengan kriteria:</p>
+                    <ol>
+                        <li>Harga (30%)</li>
+                        <li>Kualitas (40%)</li>
+                        <li>Pengiriman (20%)</li>
+                        <li>Layanan (10%)</li>
+                    </ol>
+
+                    <p>Dengan 3 alternatif pemasok: A, B, dan C.</p>
+
+                    <div class="alert alert-secondary">
+                        <ol>
+                            <li>Input nilai untuk setiap pemasok pada setiap kriteria</li>
+                            <li>Pilih metode SAW</li>
+                            <li>Sistem akan menormalisasi data dan menghitung nilai akhir</li>
+                            <li>Hasil akan menunjukkan pemasok mana yang terbaik berdasarkan kriteria yang telah ditentukan</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
