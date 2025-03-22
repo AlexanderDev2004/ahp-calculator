@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block title %}Weighted Product Model (WPM){% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">Weighted Product Model (WPM)</h2>
+    
+    <form id="wpm-form" class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium">Criteria</label>
+            <input type="text" id="criteria" class="border rounded p-2 w-full" placeholder="Enter criterion">
+            <button type="button" id="add-criterion" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded">+</button>
+        </div>
+        <div>
+            <label class="block text-sm font-medium">Alternatives</label>
+            <input type="text" id="alternatives" class="border rounded p-2 w-full" placeholder="Enter alternative">
+            <button type="button" id="add-alternative" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded">+</button>
+        </div>
+        <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">Calculate WPM</button>
+    </form>
+    
+    <div id="result" class="mt-6">
+        <h3 class="text-xl font-semibold">Results</h3>
+        <table class="min-w-full border-collapse border border-gray-300 mt-4">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border p-2">Alternative</th>
+                    <th class="border p-2">WPM Score</th>
+                </tr>
+            </thead>
+            <tbody id="wpm-results">
+                <!-- Results will be injected here dynamically -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.getElementById("wpm-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        document.getElementById("wpm-results").innerHTML = `<tr><td>Option A</td><td>0.75</td></tr><tr><td>Option B</td><td>0.25</td></tr>`;
+    });
+</script>
+{% endblock %}

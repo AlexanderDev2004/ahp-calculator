@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block title %}Weighted Sum Model (WSM){% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <h1 class="text-2xl font-bold mb-4">Weighted Sum Model (WSM)</h1>
+    
+    <form id="wsm-form" class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-3">Input Criteria and Alternatives</h2>
+        
+        <div class="mb-4">
+            <label class="block font-medium">Criteria</label>
+            <input type="text" id="criteria" placeholder="Enter criterion" class="border p-2 rounded w-full">
+            <button type="button" id="add-criteria" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded">+</button>
+        </div>
+        
+        <div class="mb-4">
+            <label class="block font-medium">Alternatives</label>
+            <input type="text" id="alternatives" placeholder="Enter alternative" class="border p-2 rounded w-full">
+            <button type="button" id="add-alternative" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded">+</button>
+        </div>
+        
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Calculate</button>
+    </form>
+
+    <div id="results" class="mt-6 hidden">
+        <h2 class="text-lg font-semibold mb-3">Results</h2>
+        <table class="w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border p-2">Alternative</th>
+                    <th class="border p-2">WSM Score</th>
+                </tr>
+            </thead>
+            <tbody id="results-body">
+                <!-- Dynamic rows will be added here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.getElementById("wsm-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        document.getElementById("results").classList.remove("hidden");
+    });
+</script>
+{% endblock %}
