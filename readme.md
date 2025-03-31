@@ -10,4 +10,4 @@ uvicorn
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=AlexanderDev2004/decimate&type=Date)](https://www.star-history.com/#AlexanderDev2004/decimate&Date)
+[[![Star History Chart](https://api.star-history.com/svg?repos=AlexanderDev2004/decimate&type=Date)](https://www.star-history.com/#AlexanderDev2004/decimate&Date)](https://www.star-history.com/#AlexanderDev2004/decimate&Date)
